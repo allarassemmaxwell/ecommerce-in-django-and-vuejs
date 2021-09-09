@@ -27,6 +27,16 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'cart'
+LOGOUT_REDIRECT_URL = 'frontpage'
+
+
 SESSION_COOKIE_AGE = 86400
 CART_SESSION_ID = 'cart'
 
@@ -38,11 +48,15 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sitemaps',
     'django.contrib.staticfiles',
     'cart',
+    'coupon',
     'core',
+    'newsletter',
     'order',
     'store',
+    'userprofile',
 ]
 
 MIDDLEWARE = [
@@ -129,12 +143,12 @@ STRIPE_API_KEY_HIDDEN      = "sk_test_cuTvZXcskwzYfPEUMtomOO6O00YKyPiWeR"
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_URL  = '/media/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, 'static')
 ]
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static")
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media/")
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
 
 
 

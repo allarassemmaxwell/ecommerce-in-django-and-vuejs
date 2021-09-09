@@ -1,7 +1,13 @@
 from django.contrib import admin
-from .models import *
-# Register your models here.
+from .models import Category, Product, ProductImage, ProductReview
 
+
+
+
+
+
+
+# CATEGORY ADMIN 
 class CategoryAdmin(admin.ModelAdmin):
     date_hierarchy      = 'date_added'
     list_display 		= ['title', 'date_added']
@@ -16,6 +22,8 @@ admin.site.register(Category, CategoryAdmin)
 
 
 
+
+# PRODUCT ADMIN 
 class ProductAdmin(admin.ModelAdmin):
     date_hierarchy      = 'date_added'
     list_display 		= ['title', 'date_added']
@@ -27,6 +35,27 @@ class ProductAdmin(admin.ModelAdmin):
     class Meta:
         model = Product
 admin.site.register(Product, ProductAdmin)
+
+
+# PRODUCT ADMIN 
+class ProductImageAdmin(admin.ModelAdmin):
+    date_hierarchy      = 'date_added'
+    list_display        = ['id', 'date_added']
+    list_display_links  = ['id']
+    list_filter         = ['id']
+    search_fields       = ['id']
+    readonly_fields     = ['date_added', 'date_updated']
+    list_per_page       = 25
+    class Meta:
+        model = ProductImage
+admin.site.register(ProductImage, ProductImageAdmin)
+
+
+
+
+
+
+admin.site.register(ProductReview)
 
 
 
